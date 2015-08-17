@@ -40,7 +40,9 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	<?php get_sidebar( 'content' ); ?>
+	if (!is_page('Donate'){
+		<?php get_sidebar( 'content' ); ?>
+	}
 </div><!-- #main-content -->
 
 <?php
