@@ -517,3 +517,19 @@ require get_template_directory() . '/inc/customizer.php';
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
 }
+
+/*
+ * Customizing admin bar
+ */
+function add_login_link() {
+	global $wp_admin_bar;
+	if ( !is_super_admin() || !is_admin_bar_showing() )
+		return;
+	$wp_admin_bar->add_menu( array(
+		'id' => 'login_link',
+		'title' => __( 'login'),
+		'href' => __('http://104.236.204.234/index.php/login/'),
+	) );
+}
+add_action('admin_bar_menu', 'add_login_link',25);
+
